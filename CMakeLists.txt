@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+project(BLAS_SYMM_Project)
+set(CMAKE_CXX_STANDARD 17)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(OPENBLAS REQUIRED openblas)
+add_executable(symm_test main.cpp)
+target_include_directories(symm_test PRIVATE ${OPENBLAS_INCLUDE_DIRS})
+target_link_libraries(symm_test PRIVATE ${OPENBLAS_LIBRARIES})
